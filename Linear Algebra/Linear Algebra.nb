@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[   1647853,      28746]
-NotebookOptionsPosition[   1617585,      28256]
-NotebookOutlinePosition[   1617986,      28272]
-CellTagsIndexPosition[   1617943,      28269]
+NotebookDataLength[   1647847,      28746]
+NotebookOptionsPosition[   1617579,      28256]
+NotebookOutlinePosition[   1617980,      28272]
+CellTagsIndexPosition[   1617937,      28269]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -28035,11 +28035,12 @@ Cell[BoxData[
   StyleBox[
    DynamicModuleBox[{$CellContext`x$$ = {
     2^Rational[-1, 2], 2^Rational[-1, 2]}, $CellContext`\[Beta]$$ = 
-    Rational[2, 3] Pi, $CellContext`\[Sigma]1$$ = 
-    0.8, $CellContext`\[Sigma]2$$ = 0.9, $CellContext`\[Omega]$$ = 
-    Rational[1, 2] Pi, Typeset`show$$ = True, Typeset`bookmarkList$$ = {}, 
-    Typeset`bookmarkMode$$ = "Menu", Typeset`animator$$, Typeset`animvar$$ = 
-    1, Typeset`name$$ = "\"untitled\"", Typeset`specs$$ = {{{
+    0.9927432785343746, $CellContext`\[Sigma]1$$ = 
+    0.6950000000000001, $CellContext`\[Sigma]2$$ = 
+    0.547, $CellContext`\[Omega]$$ = 5.114512840044184, Typeset`show$$ = True,
+     Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{{
        Hold[$CellContext`x$$], {
        2^Rational[-1, 2], 2^Rational[-1, 2]}}, {-1, -1}, {1, 1}}, {{
        Hold[$CellContext`\[Beta]$$], Rational[2, 3] Pi, "V angle \[Beta]"}, 0,
@@ -28049,8 +28050,7 @@ Cell[BoxData[
        Hold[$CellContext`\[Sigma]2$$], 0.9, 
        "singular value \!\(\*SubscriptBox[\(\[Sigma]\), \(2\)]\)"}, 0.5, 1}, {{
        Hold[$CellContext`\[Omega]$$], Rational[1, 2] Pi, "U angle \[Omega]"}, 
-      0, 2 Pi}}, Typeset`size$$ = {
-    429., {171.634033203125, 177.365966796875}}, Typeset`update$$ = 0, 
+      0, 2 Pi}}, Typeset`size$$ = {428., {169., 175.}}, Typeset`update$$ = 0, 
     Typeset`initDone$$, Typeset`skipInitDone$$ = False}, 
     DynamicBox[Manipulate`ManipulateBoxes[
      1, StandardForm, 
@@ -28197,7 +28197,7 @@ $CellContext`\[Theta]$}],
          1}, {{$CellContext`\[Omega]$$, Rational[1, 2] Pi, 
           "U angle \[Omega]"}, 0, 2 Pi}}, "Options" :> {}, 
       "DefaultOptions" :> {ControllerLinking -> True}],
-     ImageSizeCache->{480., {263., 269.}},
+     ImageSizeCache->{485., {261., 267.}},
      SingleEvaluation->True],
     Deinitialization:>None,
     DynamicModuleValues:>{},
@@ -28741,9 +28741,9 @@ Cell[1606541, 28014, 435, 8, 78, "Text",ExpressionUUID->"01ab4ea5-60b0-4226-bc86
 }, Open  ]],
 Cell[CellGroupData[{
 Cell[1607013, 28027, 195, 3, 44, "Subsubsection",ExpressionUUID->"af8bda5b-59a1-4d9a-b617-f8f6680da774"],
-Cell[1607211, 28032, 9501, 195, 551, "Output",ExpressionUUID->"06a7e1c5-172c-4987-ae2a-478ab925d9cf",
+Cell[1607211, 28032, 9495, 195, 547, "Output",ExpressionUUID->"06a7e1c5-172c-4987-ae2a-478ab925d9cf",
  CellID->1737383544],
-Cell[1616715, 28229, 818, 21, 35, "Text",ExpressionUUID->"711274e0-9c26-4bdf-96ad-b7150b35f471"]
+Cell[1616709, 28229, 818, 21, 56, "Text",ExpressionUUID->"711274e0-9c26-4bdf-96ad-b7150b35f471"]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]]

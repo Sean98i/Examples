@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     21605,        521]
-NotebookOptionsPosition[     16929,        449]
-NotebookOutlinePosition[     17328,        465]
-CellTagsIndexPosition[     17285,        462]
+NotebookDataLength[     50102,       1149]
+NotebookOptionsPosition[     45263,       1074]
+NotebookOutlinePosition[     45664,       1090]
+CellTagsIndexPosition[     45621,       1087]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -72,13 +72,16 @@ Cell[BoxData[
    RowBox[{"{", 
     RowBox[{
     "\"\<Ireland\>\"", ",", "\"\<Norway\>\"", ",", "\"\<Germany\>\"", ",", 
-     "\"\<Finland\>\"", ",", "\"\<UnitedKingdom\>\"", ",", 
+     "\"\<Finland\>\"", ",", "\"\<United Kingdom\>\"", ",", 
      "\"\<Czech Republic\>\"", ",", "\"\<Greece\>\"", ",", "\"\<Japan\>\"", 
      ",", "\"\<Nepal\>\"", ",", "\"\<Thailand\>\"", ",", "\"\<Madagascar\>\"",
       ",", "\"\<Tanzania\>\""}], "}"}]}], ";"}]], "Input",
  CellChangeTimes->{{3.8214287054236107`*^9, 3.8214287075228558`*^9}, {
-  3.821428882593205*^9, 3.8214288847884073`*^9}},
- CellLabel->"In[74]:=",ExpressionUUID->"8e71b92d-7ba0-4ade-9c67-5f8a5d98e182"],
+   3.821428882593205*^9, 3.8214288847884073`*^9}, 3.821438113176599*^9},
+ CellLabel->
+  "In[143]:=",ExpressionUUID->"8e71b92d-7ba0-4ade-9c67-5f8a5d98e182"],
+
+Cell[CellGroupData[{
 
 Cell[BoxData[
  RowBox[{"Table", "[", 
@@ -93,7 +96,629 @@ Cell[BoxData[
     RowBox[{"country", ",", "countries"}], "}"}]}], "]"}]], "Input",
  CellChangeTimes->{{3.821428550465108*^9, 3.821428551483494*^9}, 
    3.821428661371194*^9, {3.821428704287668*^9, 3.821428789420484*^9}},
- CellLabel->"In[75]:=",ExpressionUUID->"80cf27e4-18d9-4c01-9b3c-56a577eabff8"],
+ CellLabel->
+  "In[142]:=",ExpressionUUID->"80cf27e4-18d9-4c01-9b3c-56a577eabff8"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   TemplateBox[{
+     FrameBox[
+      GraphicsBox[{
+        Thickness[0.0010416666666666667`], {
+         FaceForm[{
+           RGBColor[0., 0.607843, 0.282353], 
+           Opacity[1.]}], 
+         FilledCurveBox[{{{0, 2, 0}, {0, 1, 0}, {0, 1, 0}}}, {{{0., 480.}, {
+          320., 480.}, {320., 0.}, {0., 0.}}}]}, {
+         FaceForm[{
+           RGBColor[1., 1., 1.], 
+           Opacity[1.]}], 
+         FilledCurveBox[{{{0, 2, 0}, {0, 1, 0}, {0, 1, 0}}}, {{{320., 480.}, {
+          640., 480.}, {640., 0.}, {320., 0.}}}]}, {
+         FaceForm[{
+           RGBColor[1., 0.47451000000000004`, 0.], 
+           Opacity[1.]}], 
+         FilledCurveBox[{{{0, 2, 0}, {0, 1, 0}, {0, 1, 0}}}, {{{640., 480.}, {
+          960., 480.}, {960., 0.}, {640., 0.}}}]}}, {
+       ImageSize -> {{128}, {85}}, AspectRatio -> Automatic, 
+        ImageSize -> {484., 242.}, PlotRange -> {{0., 960.}, {0., 480.}}}], 
+      StripOnInput -> False], "\"Ireland\""},
+    "Labeled",
+    DisplayFunction->(GridBox[{{
+        TagBox[
+         ItemBox[
+          PaneBox[
+           TagBox[#, "SkipImageSizeLevel"], Alignment -> {Center, Baseline}, 
+           BaselinePosition -> Baseline], DefaultBaseStyle -> "Labeled"], 
+         "SkipImageSizeLevel"]}, {
+        ItemBox[#2, DefaultBaseStyle -> "LabeledLabel"]}}, 
+      GridBoxAlignment -> {"Columns" -> {{Center}}, "Rows" -> {{Center}}}, 
+      AutoDelete -> False, 
+      GridBoxItemSize -> {
+       "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+      BaselinePosition -> {1, 1}]& ),
+    InterpretationFunction->(RowBox[{"Labeled", "[", 
+       RowBox[{#, ",", #2}], "]"}]& )], ",", 
+   TemplateBox[{
+     FrameBox[
+      GraphicsBox[{
+        Thickness[0.0011363636363636363`], {
+         FaceForm[{
+           RGBColor[0.9372550000000001, 0.168627, 0.17647100000000002`], 
+           Opacity[1.]}], 
+         FilledCurveBox[{{{0, 2, 0}, {0, 1, 0}, {0, 1, 0}}}, {{{0., 0.}, {0., 
+          640.}, {880., 640.}, {880., 0.}}}]}, {
+         FaceForm[{
+           RGBColor[1., 1., 1.], 
+           Opacity[1.]}], 
+         FilledCurveBox[{{{0, 2, 0}, {0, 1, 0}, {0, 1, 0}}}, {{{240., 640.}, {
+          400., 640.}, {400., 0.}, {240., 0.}}}], 
+         FilledCurveBox[{{{0, 2, 0}, {0, 1, 0}, {0, 1, 0}}}, {{{0., 400.}, {
+          880., 400.}, {880., 240.}, {0., 240.}}}]}, {
+         FaceForm[{
+           RGBColor[0., 0.15686300000000003`, 0.407843], 
+           Opacity[1.]}], 
+         FilledCurveBox[{{{0, 2, 0}, {0, 1, 0}, {0, 1, 0}}}, {{{280., 640.}, {
+          360., 640.}, {360., 0.}, {280., 0.}}}], 
+         FilledCurveBox[{{{0, 2, 0}, {0, 1, 0}, {0, 1, 0}}}, {{{0., 360.}, {
+          880., 360.}, {880., 280.}, {0., 280.}}}]}}, {
+       ImageSize -> {{128}, {85}}, AspectRatio -> Automatic, 
+        ImageSize -> {467., 341.}, PlotRange -> {{0., 880.}, {0., 640.}}}], 
+      StripOnInput -> False], "\"Norway\""},
+    "Labeled",
+    DisplayFunction->(GridBox[{{
+        TagBox[
+         ItemBox[
+          PaneBox[
+           TagBox[#, "SkipImageSizeLevel"], Alignment -> {Center, Baseline}, 
+           BaselinePosition -> Baseline], DefaultBaseStyle -> "Labeled"], 
+         "SkipImageSizeLevel"]}, {
+        ItemBox[#2, DefaultBaseStyle -> "LabeledLabel"]}}, 
+      GridBoxAlignment -> {"Columns" -> {{Center}}, "Rows" -> {{Center}}}, 
+      AutoDelete -> False, 
+      GridBoxItemSize -> {
+       "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+      BaselinePosition -> {1, 1}]& ),
+    InterpretationFunction->(RowBox[{"Labeled", "[", 
+       RowBox[{#, ",", #2}], "]"}]& )], ",", 
+   TemplateBox[{
+     FrameBox[
+      GraphicsBox[{
+        Thickness[0.00125], {
+         Thickness[0.00125], 
+         FilledCurveBox[{{{0, 2, 0}, {0, 1, 0}, {0, 1, 0}}}, {{{0., 0.}, {0., 
+          480.}, {800., 480.}, {800., 0.}}}]}, {
+         FaceForm[{
+           RGBColor[0.8666670000000001, 0., 0.], 
+           Opacity[1.]}], 
+         FilledCurveBox[{{{0, 2, 0}, {0, 1, 0}, {0, 1, 0}}}, {{{0., 320.}, {
+          800., 320.}, {800., 0.}, {0., 0.}}}]}, {
+         FaceForm[{
+           RGBColor[1., 0.8078430000000001, 0.], 
+           Opacity[1.]}], 
+         FilledCurveBox[{{{0, 2, 0}, {0, 1, 0}, {0, 1, 0}}}, {{{0., 160.}, {
+          800., 160.}, {800., 0.}, {0., 0.}}}]}}, {
+       ImageSize -> {{128}, {85}}, AspectRatio -> Automatic, 
+        ImageSize -> {500., 300.}, PlotRange -> {{0., 800.}, {0., 480.}}}], 
+      StripOnInput -> False], "\"Germany\""},
+    "Labeled",
+    DisplayFunction->(GridBox[{{
+        TagBox[
+         ItemBox[
+          PaneBox[
+           TagBox[#, "SkipImageSizeLevel"], Alignment -> {Center, Baseline}, 
+           BaselinePosition -> Baseline], DefaultBaseStyle -> "Labeled"], 
+         "SkipImageSizeLevel"]}, {
+        ItemBox[#2, DefaultBaseStyle -> "LabeledLabel"]}}, 
+      GridBoxAlignment -> {"Columns" -> {{Center}}, "Rows" -> {{Center}}}, 
+      AutoDelete -> False, 
+      GridBoxItemSize -> {
+       "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+      BaselinePosition -> {1, 1}]& ),
+    InterpretationFunction->(RowBox[{"Labeled", "[", 
+       RowBox[{#, ",", #2}], "]"}]& )], ",", 
+   TemplateBox[{
+     FrameBox[
+      GraphicsBox[{
+        Thickness[0.0006944444444444445], {
+         FaceForm[{
+           RGBColor[1., 1., 1.], 
+           Opacity[1.]}], 
+         FilledCurveBox[{{{0, 2, 0}, {0, 1, 0}, {0, 1, 0}}}, {{{0., 0.}, {0., 
+          880.}, {1440., 880.}, {1440., 0.}}}]}, {
+         FaceForm[{
+           RGBColor[0., 0.20784300000000003`, 0.501961], 
+           Opacity[1.]}], 
+         FilledCurveBox[{{{0, 2, 0}, {0, 1, 0}, {0, 1, 0}}}, {{{0., 560.}, {
+          1440., 560.}, {1440., 320.}, {0., 320.}}}], 
+         FilledCurveBox[{{{0, 2, 0}, {0, 1, 0}, {0, 1, 0}}}, {{{400., 880.}, {
+          640., 880.}, {640., 0.}, {400., 0.}}}]}}, {
+       ImageSize -> {{128}, {85}}, AspectRatio -> Automatic, 
+        ImageSize -> {497., 302.}, PlotRange -> {{0., 1440.}, {0., 880.}}}], 
+      StripOnInput -> False], "\"Finland\""},
+    "Labeled",
+    DisplayFunction->(GridBox[{{
+        TagBox[
+         ItemBox[
+          PaneBox[
+           TagBox[#, "SkipImageSizeLevel"], Alignment -> {Center, Baseline}, 
+           BaselinePosition -> Baseline], DefaultBaseStyle -> "Labeled"], 
+         "SkipImageSizeLevel"]}, {
+        ItemBox[#2, DefaultBaseStyle -> "LabeledLabel"]}}, 
+      GridBoxAlignment -> {"Columns" -> {{Center}}, "Rows" -> {{Center}}}, 
+      AutoDelete -> False, 
+      GridBoxItemSize -> {
+       "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+      BaselinePosition -> {1, 1}]& ),
+    InterpretationFunction->(RowBox[{"Labeled", "[", 
+       RowBox[{#, ",", #2}], "]"}]& )], ",", 
+   TemplateBox[{
+     FrameBox[
+      GraphicsBox[{{
+         RGBColor[0., 0.141176, 0.49019599999999997`], 
+         PolygonBox[{{0, 201}, {400, 201}, {400, 401}, {0, 401}}]}, {{
+          Thickness[0.00125], {
+           FaceForm[{
+             RGBColor[1., 1., 1.], 
+             Opacity[1.]}], 
+           
+           FilledCurveBox[{{{0, 2, 0}, {0, 1, 0}, {0, 1, 0}, {0, 1, 0}, {0, 1,
+             0}}, {{0, 2, 0}, {0, 1, 0}, {0, 1, 0}, {0, 1, 0}, {0, 1, 
+            0}}}, {{{0., 401.}, {0., 378.641}, {355.277, 201.}, {400., 
+            201.}, {400., 223.359}, {44.723000000000006`, 401.}}, {{400., 
+            401.}, {400., 378.641}, {44.723000000000006`, 201.}, {0., 201.}, {
+            0., 223.363}, {355.277, 401.}}}]}, {
+           FaceForm[{
+             RGBColor[0.8117650000000001, 0.07843140000000001, 0.168627], 
+             Opacity[1.]}], 
+           
+           FilledCurveBox[{{{0, 2, 0}, {0, 1, 0}, {0, 1, 0}}, {{0, 2, 0}, {0, 
+            1, 0}, {0, 1, 0}}, {{0, 2, 0}, {0, 1, 0}, {0, 1, 0}}, {{0, 2, 
+            0}, {0, 1, 0}, {0, 1, 0}}}, {{{0., 201.}, {133.33200000000002`, 
+            267.668}, {163.148, 267.668}, {29.812, 201.}}, {{0., 401.}, {
+            133.33200000000002`, 334.332}, {103.52, 334.332}, {0., 
+            386.094}}, {{236.85200000000003`, 334.332}, {370.188, 401.}, {
+            400., 401.}, {266.668, 334.332}}, {{400., 201.}, {266.668, 
+            267.668}, {296.47999999999996`, 267.668}, {400., 215.906}}}]}}, {{
+           RGBColor[1., 1., 1.], 
+           
+           PolygonBox[{{{166.668, 401.}, {166.668, 201.}, {
+            233.33200000000002`, 201.}, {233.33200000000002`, 401.}}, {{0., 
+            334.332}, {0., 267.668}, {400., 267.668}, {400., 334.332}}}]}, {
+           RGBColor[0.8117650000000001, 0.07843140000000001, 0.168627], 
+           
+           PolygonBox[{{{0., 321.}, {0., 281.}, {400., 281.}, {400., 
+            321.}}, {{180., 401.}, {180., 201.}, {220., 201.}, {220., 
+            401.}}}]}}}}, {
+       ImageSize -> {{128}, {85}}, ImageSize -> {441., Automatic}, 
+        PlotRange -> {{0, 400}, {201, 401}}}], StripOnInput -> False], 
+     "\"UnitedKingdom\""},
+    "Labeled",
+    DisplayFunction->(GridBox[{{
+        TagBox[
+         ItemBox[
+          PaneBox[
+           TagBox[#, "SkipImageSizeLevel"], Alignment -> {Center, Baseline}, 
+           BaselinePosition -> Baseline], DefaultBaseStyle -> "Labeled"], 
+         "SkipImageSizeLevel"]}, {
+        ItemBox[#2, DefaultBaseStyle -> "LabeledLabel"]}}, 
+      GridBoxAlignment -> {"Columns" -> {{Center}}, "Rows" -> {{Center}}}, 
+      AutoDelete -> False, 
+      GridBoxItemSize -> {
+       "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+      BaselinePosition -> {1, 1}]& ),
+    InterpretationFunction->(RowBox[{"Labeled", "[", 
+       RowBox[{#, ",", #2}], "]"}]& )], ",", 
+   TemplateBox[{
+     FrameBox[
+      GraphicsBox[{
+        Thickness[0.001388888888888889], {
+         FaceForm[{
+           RGBColor[0.843137, 0.07843140000000001, 0.10196100000000001`], 
+           Opacity[1.]}], 
+         FilledCurveBox[{{{0, 2, 0}, {0, 1, 0}, {0, 1, 0}}}, {{{0., 0.}, {0., 
+          480.}, {720., 480.}, {720., 0.}}}]}, {
+         FaceForm[{
+           RGBColor[1., 1., 1.], 
+           Opacity[1.]}], 
+         FilledCurveBox[{{{0, 2, 0}, {0, 1, 0}, {0, 1, 0}}}, {{{0., 480.}, {
+          720., 480.}, {720., 240.}, {0., 240.}}}]}, {
+         FaceForm[{
+           RGBColor[0.06666670000000002, 0.27058800000000005`, 0.494118], 
+           Opacity[1.]}], 
+         FilledCurveBox[{{{0, 2, 0}, {0, 1, 0}}}, {{{360., 240.}, {0., 
+          480.}, {0., 0.}}}]}}, {
+       ImageSize -> {{128}, {85}}, AspectRatio -> Automatic, 
+        ImageSize -> {497., 336.}, PlotRange -> {{0., 720.}, {0., 480.}}}], 
+      StripOnInput -> False], "\"Czech Republic\""},
+    "Labeled",
+    DisplayFunction->(GridBox[{{
+        TagBox[
+         ItemBox[
+          PaneBox[
+           TagBox[#, "SkipImageSizeLevel"], Alignment -> {Center, Baseline}, 
+           BaselinePosition -> Baseline], DefaultBaseStyle -> "Labeled"], 
+         "SkipImageSizeLevel"]}, {
+        ItemBox[#2, DefaultBaseStyle -> "LabeledLabel"]}}, 
+      GridBoxAlignment -> {"Columns" -> {{Center}}, "Rows" -> {{Center}}}, 
+      AutoDelete -> False, 
+      GridBoxItemSize -> {
+       "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+      BaselinePosition -> {1, 1}]& ),
+    InterpretationFunction->(RowBox[{"Labeled", "[", 
+       RowBox[{#, ",", #2}], "]"}]& )], ",", 
+   TemplateBox[{
+     FrameBox[
+      GraphicsBox[{
+        Thickness[0.0020833333333333333`], {
+         FaceForm[{
+           RGBColor[0.050980399999999995`, 0.368627, 0.686275], 
+           Opacity[1.]}], 
+         FilledCurveBox[{{{0, 2, 0}, {0, 1, 0}, {0, 1, 0}}}, {{{0., 0.}, {0., 
+          320.}, {480., 320.}, {480., 0.}}}]}, {
+         RGBColor[1., 1., 1.], 
+         Thickness[0.074074075], 
+         Opacity[1.], 
+         CapForm["Butt"], 
+         JoinForm[{"Miter", 4.}], 
+         JoinedCurveBox[{{{0, 2, 0}}, {{0, 2, 0}}, {{0, 2, 0}}, {{0, 2, 
+          0}}, {{0, 2, 0}}, {{0, 2, 0}}}, {{{88.891, 320.}, {88.891, 
+          124.445}}, {{0., 231.10899999999998`}, {177.777, 
+          231.10899999999998`}}, {{177.777, 266.668}, {480., 266.668}}, {{
+          177.777, 195.555}, {480., 195.555}}, {{0., 124.445}, {480., 
+          124.445}}, {{0., 53.331999999999994`}, {480., 
+          53.331999999999994`}}}, CurveClosed -> {0, 0, 0, 0, 0, 0}]}}, {
+       ImageSize -> {{128}, {85}}, AspectRatio -> Automatic, 
+        ImageSize -> {500., 334.}, PlotRange -> {{0., 480.}, {0., 320.}}}], 
+      StripOnInput -> False], "\"Greece\""},
+    "Labeled",
+    DisplayFunction->(GridBox[{{
+        TagBox[
+         ItemBox[
+          PaneBox[
+           TagBox[#, "SkipImageSizeLevel"], Alignment -> {Center, Baseline}, 
+           BaselinePosition -> Baseline], DefaultBaseStyle -> "Labeled"], 
+         "SkipImageSizeLevel"]}, {
+        ItemBox[#2, DefaultBaseStyle -> "LabeledLabel"]}}, 
+      GridBoxAlignment -> {"Columns" -> {{Center}}, "Rows" -> {{Center}}}, 
+      AutoDelete -> False, 
+      GridBoxItemSize -> {
+       "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+      BaselinePosition -> {1, 1}]& ),
+    InterpretationFunction->(RowBox[{"Labeled", "[", 
+       RowBox[{#, ",", #2}], "]"}]& )], ",", 
+   TemplateBox[{
+     FrameBox[
+      GraphicsBox[{
+        Thickness[0.001388888888888889], {
+         FaceForm[{
+           RGBColor[1., 1., 1.], 
+           Opacity[1.]}], 
+         FilledCurveBox[{{{0, 2, 0}, {0, 1, 0}, {0, 1, 0}}}, {{{0., 0.}, {0., 
+          480.}, {720., 480.}, {720., 0.}}}]}, {
+         FaceForm[{
+           RGBColor[0.737255, 0., 0.17647100000000002`], 
+           Opacity[1.]}], 
+         FilledCurveBox[{{{1, 4, 3}, {1, 3, 3}, {1, 3, 3}, {1, 3, 3}}}, {{{
+          504., 240.}, {504., 160.47299999999998`}, {439.527, 96.}, {360., 
+          96.}, {280.47299999999996`, 96.}, {216., 160.47299999999998`}, {
+          216., 240.}, {216., 319.527}, {280.47299999999996`, 384.}, {360., 
+          384.}, {439.527, 384.}, {504., 319.527}, {504., 240.}}}]}}, {
+       ImageSize -> {{128}, {85}}, AspectRatio -> Automatic, 
+        ImageSize -> {480., 319.}, PlotRange -> {{0., 720.}, {0., 480.}}}], 
+      StripOnInput -> False], "\"Japan\""},
+    "Labeled",
+    DisplayFunction->(GridBox[{{
+        TagBox[
+         ItemBox[
+          PaneBox[
+           TagBox[#, "SkipImageSizeLevel"], Alignment -> {Center, Baseline}, 
+           BaselinePosition -> Baseline], DefaultBaseStyle -> "Labeled"], 
+         "SkipImageSizeLevel"]}, {
+        ItemBox[#2, DefaultBaseStyle -> "LabeledLabel"]}}, 
+      GridBoxAlignment -> {"Columns" -> {{Center}}, "Rows" -> {{Center}}}, 
+      AutoDelete -> False, 
+      GridBoxItemSize -> {
+       "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+      BaselinePosition -> {1, 1}]& ),
+    InterpretationFunction->(RowBox[{"Labeled", "[", 
+       RowBox[{#, ",", #2}], "]"}]& )], ",", 
+   TemplateBox[{
+     FrameBox[
+      GraphicsBox[{{
+         Thickness[0.0017211703958691911`], {
+          RGBColor[0., 0.21960800000000003`, 0.5764710000000001], 
+          Thickness[0.07213642512908776], 
+          Opacity[1.], 
+          CapForm["Butt"], 
+          JoinForm[{"Miter", 4.}], 
+          
+          JoinedCurveBox[{{{0, 2, 0}, {0, 1, 0}, {0, 1, 0}, {0, 1, 0}, {0, 1, 
+           0}}}, {{{21.047, 365.337471}, {507.949, 365.337471}, {21.047, 
+           670.247471}, {21.047, 21.04847099999995}, {507.949, 
+           21.04847099999995}, {21.047, 507.946471}}}, CurveClosed -> {1}]}, {
+          FaceForm[{
+            RGBColor[1., 1., 1.], 
+            Opacity[1.]}], 
+          
+          FilledCurveBox[{{{0, 2, 0}, {0, 1, 0}}}, {{{159.875, 
+           129.36100000000002`}, {142.77299999999997`, 88.99700000000001}, {
+           125.66799999999999`, 129.36100000000002`}}}]}}, {{
+          RGBColor[
+          0.8627450000000002, 0.07843140000000001, 0.23529400000000003`], 
+          
+          PolygonBox[{{{21.047, 365.337}, {507.949, 365.337}, {21.047, 
+           670.247}}}]}, {
+          RGBColor[
+          0.8627450000000002, 0.07843140000000001, 0.23529400000000003`], 
+          
+          PolygonBox[{{21.047, 21.048}, {507.949, 21.048}, {21.047, 
+           507.947}}]}}, {
+         Thickness[0.0017211703958691911`], {
+          FaceForm[{
+            RGBColor[1., 1., 1.], 
+            Opacity[1.]}], 
+          
+          FilledCurveBox[{{{1, 4, 3}, {1, 3, 3}, {1, 3, 3}, {1, 3, 3}, {1, 3, 
+           3}, {1, 3, 3}}}, CompressedData["
+1:eJxTTMoPSmVmYGBgBGJhIGYC4r0lkyVYnrk5uG37/PfKr1qH4oyJb2vq/RwW
+SOnfVZlQ7dB84NRCV79Ih9eBO+Rab1Y63PpZl7XnRiKc/67G3jSOKx3OFwZp
+EMyB62cAgR+5cPNh/AJbruuLU2ocgKrYGlfmOGjG9B/6eqHKIW6XJw9TdpbD
+QaC12zZWOhSC1OlkOERabjlRNqnCoRVkEWuqgypb41Tn1+Vw98D4vdPzhJoj
+YuF8kPN2cYbD9d8Gqe8JgpsPdo+CD9x+WHjA3IcePgAXt4qb
+           "]], 
+          
+          FilledCurveBox[{{{1, 4, 3}, {1, 3, 3}, {1, 3, 3}, {1, 3, 3}}}, {{{
+           187.90200000000002`, 434.552}, {187.90200000000002`, 409.626}, {
+           167.695, 389.42299999999994`}, {142.77299999999997`, 
+           389.42299999999994`}, {117.848, 389.42299999999994`}, {97.645, 
+           409.626}, {97.645, 434.552}, {97.645, 459.474}, {117.848, 
+           479.677}, {142.77299999999997`, 479.677}, {167.695, 479.677}, {
+           187.90200000000002`, 459.474}, {187.90200000000002`, 434.552}}}], 
+          
+          FilledCurveBox[{{{0, 2, 0}, {0, 1, 0}}}, {{{160.04299999999998`, 
+           476.243}, {155., 496.02099999999996`}, {142.77299999999997`, 
+           479.677}}}], 
+          
+          FilledCurveBox[{{{0, 2, 0}, {0, 1, 0}}}, {{{174.684, 466.462}, {
+           177.594, 486.661}, {160.04299999999998`, 476.243}}}], 
+          
+          FilledCurveBox[{{{0, 2, 0}, {0, 1, 0}}}, {{{184.465, 451.822}, {
+           194.883, 469.368}, {174.684, 466.462}}}], 
+          
+          FilledCurveBox[{{{0, 2, 0}, {0, 1, 0}}}, {{{187.90200000000002`, 
+           434.552}, {204.242, 446.779}, {184.465, 451.822}}}], 
+          
+          FilledCurveBox[{{{0, 2, 0}, {0, 1, 0}}}, {{{184.465, 417.282}, {
+           204.242, 422.325}, {187.90200000000002`, 434.552}}}], 
+          
+          FilledCurveBox[{{{0, 2, 0}, {0, 1, 0}}}, {{{174.684, 
+           402.64200000000005`}, {194.883, 399.73199999999997`}, {184.465, 
+           417.282}}}], 
+          
+          FilledCurveBox[{{{0, 2, 0}, {0, 1, 0}}}, {{{125.504, 476.243}, {
+           130.547, 496.02099999999996`}, {142.77299999999997`, 479.677}}}], 
+          
+          FilledCurveBox[{{{0, 2, 0}, {0, 1, 0}}}, {{{110.863, 466.462}, {
+           107.953, 486.661}, {125.504, 476.243}}}], 
+          
+          FilledCurveBox[{{{0, 2, 0}, {0, 1, 0}}}, {{{101.082, 451.822}, {
+           90.664, 469.368}, {110.863, 466.462}}}], 
+          
+          FilledCurveBox[{{{0, 2, 0}, {0, 1, 0}}}, {{{97.645, 434.552}, {
+           81.30499999999999, 446.779}, {101.082, 451.822}}}], 
+          
+          FilledCurveBox[{{{0, 2, 0}, {0, 1, 0}}}, {{{101.082, 417.282}, {
+           81.30499999999999, 422.325}, {97.645, 434.552}}}], 
+          
+          FilledCurveBox[{{{0, 2, 0}, {0, 1, 0}}}, {{{110.863, 
+           402.64200000000005`}, {90.664, 399.73199999999997`}, {101.082, 
+           417.282}}}], 
+          
+          FilledCurveBox[{{{1, 4, 3}, {1, 3, 3}, {1, 3, 3}, {1, 3, 3}}}, {{{
+           208.85500000000002`, 193.19299999999998`}, {208.85500000000002`, 
+           156.697}, {179.26999999999998`, 127.111}, {142.77299999999997`, 
+           127.111}, {106.277, 127.111}, {76.691, 156.697}, {76.691, 
+           193.19299999999998`}, {76.691, 229.689}, {106.277, 259.279}, {
+           142.77299999999997`, 259.279}, {179.26999999999998`, 259.279}, {
+           208.85500000000002`, 229.689}, {208.85500000000002`, 
+           193.19299999999998`}}}], 
+          
+          FilledCurveBox[{{{0, 2, 0}, {0, 1, 0}}}, {{{159.875, 
+           129.36100000000002`}, {142.77299999999997`, 88.99700000000001}, {
+           125.66799999999999`, 129.36100000000002`}}}], 
+          
+          FilledCurveBox[{{{0, 2, 0}, {0, 1, 0}}}, {{{125.66799999999999`, 
+           257.025}, {142.77299999999997`, 297.392}, {159.875, 257.025}}}], 
+          
+          FilledCurveBox[{{{0, 2, 0}, {0, 1, 0}}}, {{{78.94100000000002, 
+           176.091}, {38.574, 193.19299999999998`}, {78.94100000000002, 
+           210.298}}}], 
+          
+          FilledCurveBox[{{{0, 2, 0}, {0, 1, 0}}}, {{{206.605, 210.298}, {
+           246.969, 193.19299999999998`}, {206.605, 176.091}}}], 
+          
+          FilledCurveBox[{{{0, 2, 0}, {0, 1, 0}}}, {{{125.66799999999999`, 
+           129.36100000000002`}, {90.67599999999999, 102.95400000000001`}, {
+           96.043, 146.466}}}], 
+          
+          FilledCurveBox[{{{0, 2, 0}, {0, 1, 0}}}, {{{159.875, 257.025}, {
+           194.871, 283.4309999999999}, {189.5, 239.923}}}], 
+          
+          FilledCurveBox[{{{0, 2, 0}, {0, 1, 0}}}, {{{78.94100000000002, 
+           210.298}, {52.535000000000004`, 245.29}, {96.043, 239.923}}}], 
+          
+          FilledCurveBox[{{{0, 2, 0}, {0, 1, 0}}}, {{{206.605, 176.091}, {
+           233.012, 141.095}, {189.5, 146.466}}}], 
+          
+          FilledCurveBox[{{{0, 2, 0}, {0, 1, 0}}}, {{{96.043, 146.466}, {
+           52.535000000000004`, 141.095}, {78.94100000000002, 176.091}}}], 
+          
+          FilledCurveBox[{{{0, 2, 0}, {0, 1, 0}}}, {{{189.5, 239.923}, {
+           233.012, 245.29}, {206.605, 210.298}}}], 
+          
+          FilledCurveBox[{{{0, 2, 0}, {0, 1, 0}}}, {{{96.043, 239.923}, {
+           90.67599999999999, 283.4309999999999}, {125.66799999999999`, 
+           257.025}}}], 
+          
+          FilledCurveBox[{{{0, 2, 0}, {0, 1, 0}}}, {{{189.5, 146.466}, {
+           194.871, 102.95400000000001`}, {159.875, 
+           129.36100000000002`}}}]}}}, {
+       ImageSize -> {{128}, {85}}, AspectRatio -> Automatic, 
+        ImageSize -> {233., 282.}, PlotRange -> {{0., 581.}, {0., 709.}}}], 
+      StripOnInput -> False], "\"Nepal\""},
+    "Labeled",
+    DisplayFunction->(GridBox[{{
+        TagBox[
+         ItemBox[
+          PaneBox[
+           TagBox[#, "SkipImageSizeLevel"], Alignment -> {Center, Baseline}, 
+           BaselinePosition -> Baseline], DefaultBaseStyle -> "Labeled"], 
+         "SkipImageSizeLevel"]}, {
+        ItemBox[#2, DefaultBaseStyle -> "LabeledLabel"]}}, 
+      GridBoxAlignment -> {"Columns" -> {{Center}}, "Rows" -> {{Center}}}, 
+      AutoDelete -> False, 
+      GridBoxItemSize -> {
+       "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+      BaselinePosition -> {1, 1}]& ),
+    InterpretationFunction->(RowBox[{"Labeled", "[", 
+       RowBox[{#, ",", #2}], "]"}]& )], ",", 
+   TemplateBox[{
+     FrameBox[
+      GraphicsBox[{
+        Thickness[0.001388888888888889], {
+         FaceForm[{
+           RGBColor[0.9294119999999999, 0.109804, 0.141176], 
+           Opacity[1.]}], 
+         FilledCurveBox[{{{0, 2, 0}, {0, 1, 0}, {0, 1, 0}}}, {{{0., 0.}, {0., 
+          480.}, {720., 480.}, {720., 0.}}}]}, {
+         FaceForm[{
+           RGBColor[1., 1., 1.], 
+           Opacity[1.]}], 
+         FilledCurveBox[{{{0, 2, 0}, {0, 1, 0}, {0, 1, 0}}}, {{{0., 400.}, {
+          720., 400.}, {720., 80.}, {0., 80.}}}]}, {
+         FaceForm[{
+           RGBColor[0.141176, 0.11372500000000002`, 0.309804], 
+           Opacity[1.]}], 
+         FilledCurveBox[{{{0, 2, 0}, {0, 1, 0}, {0, 1, 0}}}, {{{0., 320.}, {
+          720., 320.}, {720., 160.}, {0., 160.}}}]}}, {
+       ImageSize -> {{128}, {85}}, AspectRatio -> Automatic, 
+        ImageSize -> {486., 324.}, PlotRange -> {{0., 720.}, {0., 480.}}}], 
+      StripOnInput -> False], "\"Thailand\""},
+    "Labeled",
+    DisplayFunction->(GridBox[{{
+        TagBox[
+         ItemBox[
+          PaneBox[
+           TagBox[#, "SkipImageSizeLevel"], Alignment -> {Center, Baseline}, 
+           BaselinePosition -> Baseline], DefaultBaseStyle -> "Labeled"], 
+         "SkipImageSizeLevel"]}, {
+        ItemBox[#2, DefaultBaseStyle -> "LabeledLabel"]}}, 
+      GridBoxAlignment -> {"Columns" -> {{Center}}, "Rows" -> {{Center}}}, 
+      AutoDelete -> False, 
+      GridBoxItemSize -> {
+       "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+      BaselinePosition -> {1, 1}]& ),
+    InterpretationFunction->(RowBox[{"Labeled", "[", 
+       RowBox[{#, ",", #2}], "]"}]& )], ",", 
+   TemplateBox[{
+     FrameBox[
+      GraphicsBox[{{
+         Thickness[0.0010416666666666667`], {
+          FaceForm[{
+            RGBColor[1., 1., 1.], 
+            Opacity[1.]}], 
+          
+          FilledCurveBox[{{{0, 2, 0}, {0, 1, 0}, {0, 1, 0}}}, {{{0., 480.}, {
+           720., 480.}, {720., 0.}, {0., 0.}}}]}}, {
+         FaceForm[{
+           RGBColor[0.988235, 0.23921600000000004`, 0.196078], 
+           Opacity[1.]}], 
+         FilledCurveBox[{{{0, 2, 0}, {0, 1, 0}, {0, 1, 0}}}, {{{240., 480.}, {
+          720., 480.}, {720., 0.}, {240., 0.}}}]}, {
+         FaceForm[{
+           RGBColor[0., 0.494118, 0.22745100000000001`], 
+           Opacity[1.]}], 
+         FilledCurveBox[{{{0, 2, 0}, {0, 1, 0}, {0, 1, 0}}}, {{{240., 240.}, {
+          720., 240.}, {720., 0.}, {240., 0.}}}]}}, {
+       ImageSize -> {{128}, {85}}, ImageSize -> {469., Automatic}, 
+        PlotRange -> {{0., 720.}, {0., 480.}}}], StripOnInput -> False], 
+     "\"Madagascar\""},
+    "Labeled",
+    DisplayFunction->(GridBox[{{
+        TagBox[
+         ItemBox[
+          PaneBox[
+           TagBox[#, "SkipImageSizeLevel"], Alignment -> {Center, Baseline}, 
+           BaselinePosition -> Baseline], DefaultBaseStyle -> "Labeled"], 
+         "SkipImageSizeLevel"]}, {
+        ItemBox[#2, DefaultBaseStyle -> "LabeledLabel"]}}, 
+      GridBoxAlignment -> {"Columns" -> {{Center}}, "Rows" -> {{Center}}}, 
+      AutoDelete -> False, 
+      GridBoxItemSize -> {
+       "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+      BaselinePosition -> {1, 1}]& ),
+    InterpretationFunction->(RowBox[{"Labeled", "[", 
+       RowBox[{#, ",", #2}], "]"}]& )], ",", 
+   TemplateBox[{
+     FrameBox[
+      GraphicsBox[{
+        Thickness[0.0018148820326678765`], {
+         FaceForm[{
+           RGBColor[0.117647, 0.709804, 0.22745100000000001`], 
+           Opacity[1.]}], 
+         FilledCurveBox[{{{0, 2, 0}, {0, 1, 0}}}, {{{35.105000000000004`, 
+          373.71}, {515.105, 373.71}, {35.105000000000004`, 53.71}}}]}, {
+         FaceForm[{
+           RGBColor[0., 0.6392159999999999, 0.8666670000000001], 
+           Opacity[1.]}], 
+         FilledCurveBox[{{{0, 2, 0}, {0, 1, 0}}}, {{{35.105000000000004`, 
+          53.71}, {515.105, 53.71}, {515.105, 373.71}}}]}, {
+         Thickness[0.0018148820326678765`], 
+         FilledCurveBox[{{{0, 2, 0}}}, {{{35.105000000000004`, 53.71}, {
+          515.105, 373.71}}}]}, {
+         RGBColor[0.988235, 0.8196080000000001, 0.08627450000000002], 
+         Thickness[0.22988505807622506`], 
+         Opacity[1.], 
+         CapForm["Butt"], 
+         JoinForm[{"Miter", 4.}], 
+         JoinedCurveBox[{{{0, 2, 0}}}, {{{35.105000000000004`, 
+          53.70965599999994}, {515.105, 373.70965599999994`}}}, 
+          CurveClosed -> {0}]}, {
+         Thickness[0.15728977676950998`], 
+         FilledCurveBox[{{{0, 2, 0}}}, {{{35.105000000000004`, 53.71}, {
+          515.105, 373.71}}}]}, {
+         Thickness[0.15728977676950998`], 
+         CapForm["Butt"], 
+         JoinForm[{"Miter", 4.}], 
+         JoinedCurveBox[{{{0, 2, 0}}}, {{{35.105000000000004`, 
+          53.70965599999994}, {515.105, 373.70965599999994`}}}, 
+          CurveClosed -> {0}]}}, {
+       ImageSize -> {{128}, {85}}, AspectRatio -> Automatic, 
+        ImageSize -> {457., 304.}, 
+        PlotRange -> {{35.105000000000004`, 515.105}, {53.71, 373.71}}}], 
+      StripOnInput -> False], "\"Tanzania\""},
+    "Labeled",
+    DisplayFunction->(GridBox[{{
+        TagBox[
+         ItemBox[
+          PaneBox[
+           TagBox[#, "SkipImageSizeLevel"], Alignment -> {Center, Baseline}, 
+           BaselinePosition -> Baseline], DefaultBaseStyle -> "Labeled"], 
+         "SkipImageSizeLevel"]}, {
+        ItemBox[#2, DefaultBaseStyle -> "LabeledLabel"]}}, 
+      GridBoxAlignment -> {"Columns" -> {{Center}}, "Rows" -> {{Center}}}, 
+      AutoDelete -> False, 
+      GridBoxItemSize -> {
+       "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+      BaselinePosition -> {1, 1}]& ),
+    InterpretationFunction->(RowBox[{"Labeled", "[", 
+       RowBox[{#, ",", #2}], "]"}]& )]}], "}"}]], "Output",
+ CellChangeTimes->{3.821438166228996*^9},
+ CellLabel->
+  "Out[142]=",ExpressionUUID->"dc004fc5-8b56-4fd6-98de-97947a28c8c4"]
+}, Open  ]],
 
 Cell[CellGroupData[{
 
@@ -447,9 +1072,9 @@ have ~20 basis functions in order to reconstruct any value in the range 0\
 }, Open  ]]
 }, Open  ]]
 },
-WindowSize->{1210, 763},
-WindowMargins->{{Automatic, -312}, {Automatic, 0}},
-FrontEndVersion->"12.2 for Mac OS X x86 (64-bit) (December 12, 2020)",
+WindowSize->{681, 676},
+WindowMargins->{{-7, Automatic}, {Automatic, 0}},
+FrontEndVersion->"12.2 for Microsoft Windows (64-bit) (December 12, 2020)",
 StyleDefinitions->"Default.nb",
 ExpressionUUID->"eafd9048-e396-4f23-a88a-cf6ebc7b00ad"
 ]
@@ -465,62 +1090,65 @@ CellTagsIndex->{}
 (*NotebookFileOutline
 Notebook[{
 Cell[CellGroupData[{
-Cell[580, 22, 219, 4, 98, "Title",ExpressionUUID->"3749f0de-f693-4aaf-a5d1-16a58d07f4cf"],
-Cell[802, 28, 959, 18, 58, "Text",ExpressionUUID->"d7076964-f2b5-4bf2-86a7-3a425b151fe2"],
+Cell[580, 22, 219, 4, 96, "Title",ExpressionUUID->"3749f0de-f693-4aaf-a5d1-16a58d07f4cf"],
+Cell[802, 28, 959, 18, 100, "Text",ExpressionUUID->"d7076964-f2b5-4bf2-86a7-3a425b151fe2"],
 Cell[CellGroupData[{
 Cell[1786, 50, 150, 3, 67, "Section",ExpressionUUID->"dbfdf7ce-b901-4594-b5a9-8e64244300ae"],
-Cell[1939, 55, 612, 11, 81, "Text",ExpressionUUID->"6f161d6e-5423-49ba-abd7-f8f757d66770"],
-Cell[2554, 68, 633, 12, 52, "Input",ExpressionUUID->"8e71b92d-7ba0-4ade-9c67-5f8a5d98e182"],
-Cell[3190, 82, 556, 13, 30, "Input",ExpressionUUID->"80cf27e4-18d9-4c01-9b3c-56a577eabff8"],
+Cell[1939, 55, 612, 11, 122, "Text",ExpressionUUID->"6f161d6e-5423-49ba-abd7-f8f757d66770"],
+Cell[2554, 68, 661, 13, 67, "Input",ExpressionUUID->"8e71b92d-7ba0-4ade-9c67-5f8a5d98e182"],
 Cell[CellGroupData[{
-Cell[3771, 99, 209, 4, 54, "Subsection",ExpressionUUID->"5eb00f02-020c-49e5-8ca4-aa4fec3d964c"],
-Cell[3983, 105, 234, 4, 35, "Text",ExpressionUUID->"6046d0fa-1d7f-4f45-be9e-d6fbcc0ca3f2"],
-Cell[4220, 111, 501, 9, 58, "Text",ExpressionUUID->"b5b4bc32-04a2-4e64-bbf9-0818428a5b70"],
-Cell[4724, 122, 332, 7, 35, "Text",ExpressionUUID->"df4ef440-7406-48c7-99c0-5ba676d7ae93"],
-Cell[5059, 131, 273, 6, 35, "Text",ExpressionUUID->"9a423892-17ec-4e08-a9f4-fb1bb5a16985"],
-Cell[5335, 139, 253, 4, 35, "Text",ExpressionUUID->"6d9dbc82-4b3d-471e-9dbc-5ae342bd3f78"],
-Cell[5591, 145, 258, 6, 35, "Text",ExpressionUUID->"4d5d85c3-cc55-4e3f-b367-d60ccd0c3cb1"],
-Cell[5852, 153, 346, 8, 35, "Text",ExpressionUUID->"116c7595-d64c-4c06-9686-330fc56bbedc"],
-Cell[6201, 163, 348, 7, 35, "Text",ExpressionUUID->"1eaff618-f5f2-46c2-b6ca-61f4537b720f"],
-Cell[6552, 172, 318, 7, 35, "Text",ExpressionUUID->"7b2b597a-7fed-440c-9142-dfda27692b1f"]
+Cell[3240, 85, 560, 14, 48, "Input",ExpressionUUID->"80cf27e4-18d9-4c01-9b3c-56a577eabff8"],
+Cell[3803, 101, 28265, 618, 551, "Output",ExpressionUUID->"dc004fc5-8b56-4fd6-98de-97947a28c8c4"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[6907, 184, 165, 3, 54, "Subsection",ExpressionUUID->"bc39e82c-e57e-499f-81a1-734e0db4a259"],
-Cell[7075, 189, 270, 6, 35, "Text",ExpressionUUID->"78a0e87f-fe3a-4590-9004-48fe5562d955"],
-Cell[7348, 197, 285, 5, 35, "Text",ExpressionUUID->"1b0a0785-b3ea-4bbf-b9bf-3d96a3a55eb4"],
-Cell[7636, 204, 237, 4, 35, "Text",ExpressionUUID->"b678c033-87e3-44fa-8467-dc0f283ca221"],
-Cell[7876, 210, 376, 7, 35, "Text",ExpressionUUID->"c8d8249f-1ba1-4699-82d2-22380f73b0f9"],
-Cell[8255, 219, 273, 6, 35, "Text",ExpressionUUID->"cf937ae4-c415-4020-b3a5-abc2dac1c9be"],
-Cell[8531, 227, 202, 3, 35, "Text",ExpressionUUID->"47e35860-928e-449e-84a5-c324201ddfd9"],
-Cell[8736, 232, 314, 6, 35, "Text",ExpressionUUID->"16af7c97-13d8-462a-977a-38591b2995c6"],
-Cell[9053, 240, 282, 5, 35, "Text",ExpressionUUID->"1fb2d8bb-c885-45ea-88c7-75204566fbde"]
+Cell[32105, 724, 209, 4, 53, "Subsection",ExpressionUUID->"5eb00f02-020c-49e5-8ca4-aa4fec3d964c"],
+Cell[32317, 730, 234, 4, 34, "Text",ExpressionUUID->"6046d0fa-1d7f-4f45-be9e-d6fbcc0ca3f2"],
+Cell[32554, 736, 501, 9, 100, "Text",ExpressionUUID->"b5b4bc32-04a2-4e64-bbf9-0818428a5b70"],
+Cell[33058, 747, 332, 7, 56, "Text",ExpressionUUID->"df4ef440-7406-48c7-99c0-5ba676d7ae93"],
+Cell[33393, 756, 273, 6, 34, "Text",ExpressionUUID->"9a423892-17ec-4e08-a9f4-fb1bb5a16985"],
+Cell[33669, 764, 253, 4, 34, "Text",ExpressionUUID->"6d9dbc82-4b3d-471e-9dbc-5ae342bd3f78"],
+Cell[33925, 770, 258, 6, 34, "Text",ExpressionUUID->"4d5d85c3-cc55-4e3f-b367-d60ccd0c3cb1"],
+Cell[34186, 778, 346, 8, 56, "Text",ExpressionUUID->"116c7595-d64c-4c06-9686-330fc56bbedc"],
+Cell[34535, 788, 348, 7, 56, "Text",ExpressionUUID->"1eaff618-f5f2-46c2-b6ca-61f4537b720f"],
+Cell[34886, 797, 318, 7, 56, "Text",ExpressionUUID->"7b2b597a-7fed-440c-9142-dfda27692b1f"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[9372, 250, 165, 3, 54, "Subsection",ExpressionUUID->"5608ee5f-164a-4ee0-ae5b-7c72c87bb9b0"],
-Cell[9540, 255, 352, 7, 35, "Text",ExpressionUUID->"7042c497-11b7-48db-8e3e-1b0be51def51"],
-Cell[9895, 264, 272, 6, 35, "Text",ExpressionUUID->"d1d2db8f-5d19-4c75-9802-8ebf4925e504"],
-Cell[10170, 272, 585, 13, 62, "Text",ExpressionUUID->"ac2ac73f-3e45-4898-92bf-ef64137f76b5"],
-Cell[10758, 287, 200, 3, 35, "Text",ExpressionUUID->"542958a3-c99d-4fa3-b2d1-007c6071cb71"],
-Cell[10961, 292, 161, 3, 35, "Text",ExpressionUUID->"ea00ed71-da08-4797-858f-e67743ce5ec8"],
-Cell[11125, 297, 219, 5, 35, "Text",ExpressionUUID->"e9c3d471-e2b4-4dda-8bd8-16b2310fdaf6"],
-Cell[11347, 304, 224, 4, 35, "Text",ExpressionUUID->"8bd7db97-1c8f-4062-be6e-2a979f30df47"],
-Cell[11574, 310, 225, 3, 35, "Text",ExpressionUUID->"3aa38b2a-4927-4e3d-a39a-ee21f3c70147"]
+Cell[35241, 809, 165, 3, 53, "Subsection",ExpressionUUID->"bc39e82c-e57e-499f-81a1-734e0db4a259"],
+Cell[35409, 814, 270, 6, 56, "Text",ExpressionUUID->"78a0e87f-fe3a-4590-9004-48fe5562d955"],
+Cell[35682, 822, 285, 5, 34, "Text",ExpressionUUID->"1b0a0785-b3ea-4bbf-b9bf-3d96a3a55eb4"],
+Cell[35970, 829, 237, 4, 34, "Text",ExpressionUUID->"b678c033-87e3-44fa-8467-dc0f283ca221"],
+Cell[36210, 835, 376, 7, 56, "Text",ExpressionUUID->"c8d8249f-1ba1-4699-82d2-22380f73b0f9"],
+Cell[36589, 844, 273, 6, 34, "Text",ExpressionUUID->"cf937ae4-c415-4020-b3a5-abc2dac1c9be"],
+Cell[36865, 852, 202, 3, 34, "Text",ExpressionUUID->"47e35860-928e-449e-84a5-c324201ddfd9"],
+Cell[37070, 857, 314, 6, 34, "Text",ExpressionUUID->"16af7c97-13d8-462a-977a-38591b2995c6"],
+Cell[37387, 865, 282, 5, 34, "Text",ExpressionUUID->"1fb2d8bb-c885-45ea-88c7-75204566fbde"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[37706, 875, 165, 3, 53, "Subsection",ExpressionUUID->"5608ee5f-164a-4ee0-ae5b-7c72c87bb9b0"],
+Cell[37874, 880, 352, 7, 56, "Text",ExpressionUUID->"7042c497-11b7-48db-8e3e-1b0be51def51"],
+Cell[38229, 889, 272, 6, 56, "Text",ExpressionUUID->"d1d2db8f-5d19-4c75-9802-8ebf4925e504"],
+Cell[38504, 897, 585, 13, 83, "Text",ExpressionUUID->"ac2ac73f-3e45-4898-92bf-ef64137f76b5"],
+Cell[39092, 912, 200, 3, 34, "Text",ExpressionUUID->"542958a3-c99d-4fa3-b2d1-007c6071cb71"],
+Cell[39295, 917, 161, 3, 34, "Text",ExpressionUUID->"ea00ed71-da08-4797-858f-e67743ce5ec8"],
+Cell[39459, 922, 219, 5, 34, "Text",ExpressionUUID->"e9c3d471-e2b4-4dda-8bd8-16b2310fdaf6"],
+Cell[39681, 929, 224, 4, 34, "Text",ExpressionUUID->"8bd7db97-1c8f-4062-be6e-2a979f30df47"],
+Cell[39908, 935, 225, 3, 34, "Text",ExpressionUUID->"3aa38b2a-4927-4e3d-a39a-ee21f3c70147"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[11848, 319, 162, 3, 67, "Section",ExpressionUUID->"67e33619-aac1-491f-ace1-c91b1871ec2b"],
-Cell[12013, 324, 394, 8, 35, "Text",ExpressionUUID->"d5f51845-d523-4ef8-a771-189bfd1c5768"],
-Cell[12410, 334, 202, 3, 35, "Text",ExpressionUUID->"53ef4bd1-9038-4864-9c44-d179938da54c"],
-Cell[12615, 339, 165, 3, 35, "Text",ExpressionUUID->"5a71649c-81c9-49a3-8c83-ff6167c0b209"],
-Cell[12783, 344, 197, 3, 35, "Text",ExpressionUUID->"5f1ea7d6-391d-4832-a213-fa49e59830db"],
-Cell[12983, 349, 255, 6, 35, "Text",ExpressionUUID->"f715f0d8-12d3-499e-badf-bf1faaac3190"],
-Cell[13241, 357, 310, 6, 35, "Text",ExpressionUUID->"b3243a7e-7259-45cc-823a-3fcc14ad0b83"]
+Cell[40182, 944, 162, 3, 67, "Section",ExpressionUUID->"67e33619-aac1-491f-ace1-c91b1871ec2b"],
+Cell[40347, 949, 394, 8, 56, "Text",ExpressionUUID->"d5f51845-d523-4ef8-a771-189bfd1c5768"],
+Cell[40744, 959, 202, 3, 34, "Text",ExpressionUUID->"53ef4bd1-9038-4864-9c44-d179938da54c"],
+Cell[40949, 964, 165, 3, 34, "Text",ExpressionUUID->"5a71649c-81c9-49a3-8c83-ff6167c0b209"],
+Cell[41117, 969, 197, 3, 34, "Text",ExpressionUUID->"5f1ea7d6-391d-4832-a213-fa49e59830db"],
+Cell[41317, 974, 255, 6, 56, "Text",ExpressionUUID->"f715f0d8-12d3-499e-badf-bf1faaac3190"],
+Cell[41575, 982, 310, 6, 56, "Text",ExpressionUUID->"b3243a7e-7259-45cc-823a-3fcc14ad0b83"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[13588, 368, 201, 3, 67, "Section",ExpressionUUID->"05e4041f-de11-44bb-987d-d36d041fdcdd"],
-Cell[13792, 373, 2209, 49, 173, "Text",ExpressionUUID->"2f7fef42-7f8c-4598-aa54-4fccb4f5aba9"],
-Cell[16004, 424, 323, 5, 35, "Text",ExpressionUUID->"8f03376c-acdd-49c2-bdfb-261b871b7e0a"],
-Cell[16330, 431, 571, 14, 35, "Text",ExpressionUUID->"63f1b98c-507c-485d-b9f4-6adcd44c3e32"]
+Cell[41922, 993, 201, 3, 105, "Section",ExpressionUUID->"05e4041f-de11-44bb-987d-d36d041fdcdd"],
+Cell[42126, 998, 2209, 49, 298, "Text",ExpressionUUID->"2f7fef42-7f8c-4598-aa54-4fccb4f5aba9"],
+Cell[44338, 1049, 323, 5, 34, "Text",ExpressionUUID->"8f03376c-acdd-49c2-bdfb-261b871b7e0a"],
+Cell[44664, 1056, 571, 14, 56, "Text",ExpressionUUID->"63f1b98c-507c-485d-b9f4-6adcd44c3e32"]
 }, Open  ]]
 }, Open  ]]
 }

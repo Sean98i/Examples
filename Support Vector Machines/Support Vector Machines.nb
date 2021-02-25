@@ -1,0 +1,788 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 12.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     29534,        780]
+NotebookOptionsPosition[     23481,        687]
+NotebookOutlinePosition[     23880,        703]
+CellTagsIndexPosition[     23837,        700]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Support Vector Machines", "Title",
+ CellChangeTimes->{{3.822981123991681*^9, 
+  3.822981127870563*^9}},ExpressionUUID->"289eaf38-3e93-40a8-bc2b-\
+d9c992b97006"],
+
+Cell["\<\
+In this notebook we will develop support vector machine models for several \
+datasets by using them to formulate a constrained optimisation problem. \
+First, we review how constrained optimisation is done in Mathematica.\
+\>", "Text",
+ CellChangeTimes->{{3.8229929850392323`*^9, 3.822993064350775*^9}, {
+  3.822993467940414*^9, 
+  3.8229934796060667`*^9}},ExpressionUUID->"ef24bbba-1885-49f3-bd5c-\
+aeaabe0bc185"],
+
+Cell[CellGroupData[{
+
+Cell["Constrained Optimisation", "Section",
+ CellChangeTimes->{{3.8229934593339653`*^9, 
+  3.822993463574456*^9}},ExpressionUUID->"bde7937b-f30f-4050-93b6-\
+58fce63e9674"],
+
+Cell[TextData[{
+ "Consider the problem of minimising ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SuperscriptBox["x", "2"], "+", 
+    SuperscriptBox["y", "2"]}], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "97fd13ae-a8c4-45f0-bfa8-25c24353824b"],
+ " subject to the constraints ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{
+     RowBox[{"3", "x"}], "+", 
+     RowBox[{"2", "y"}]}], "\[GreaterEqual]", "7"}], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "36983e70-4823-425b-b43d-e06434e46d92"],
+ " and ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"x", "+", 
+     RowBox[{"2", "y"}]}], "\[GreaterEqual]", "6"}], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "91b1bb6b-a7e4-4ce5-af40-72ebd5063be6"],
+ ". We can solve this using NMinimize:"
+}], "Text",
+ CellChangeTimes->{{3.8229935434061613`*^9, 3.82299355669022*^9}, {
+  3.8229944857040873`*^9, 
+  3.822994533796236*^9}},ExpressionUUID->"cadd491c-50ed-4874-93d3-\
+6fd1c6d20aee"],
+
+Cell["\<\
+Let\[CloseCurlyQuote]s visualise the solution along with the constraints and \
+the function we are trying to minimise.\
+\>", "Text",
+ CellChangeTimes->{{3.822994555250189*^9, 
+  3.822994574520455*^9}},ExpressionUUID->"395ea9a3-acfc-487f-b9f9-\
+78cf4694122f"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Linear Support Vector Machine", "Section",
+ CellChangeTimes->{{3.822981114493249*^9, 
+  3.8229811230414*^9}},ExpressionUUID->"3b64852d-85ac-42fc-81d6-a533fd895d6a"],
+
+Cell[TextData[{
+ "Let\[CloseCurlyQuote]s now produce a support vector machine for the example \
+from the video lectures. First, we need to define the samples, ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["x", "i"], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "f288ea17-79ce-4336-9348-f91588a93c17"],
+ ". These are points in a 2D vector space which are labelled as either \
+\[OpenCurlyDoubleQuote]Plus\[CloseCurlyDoubleQuote] or \
+\[OpenCurlyDoubleQuote]Minus\[CloseCurlyDoubleQuote]."
+}], "Text",
+ CellChangeTimes->{{3.822992977829295*^9, 3.822992978514311*^9}, {
+  3.8229945867032957`*^9, 
+  3.822994651725788*^9}},ExpressionUUID->"05d2161c-cfdb-419e-8627-\
+028b75f6b563"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"data", "=", 
+   RowBox[{"<|", 
+    RowBox[{
+     RowBox[{"\"\<Plus\>\"", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"1.284422952732416`", ",", "2.481901856407326`"}], "}"}], 
+        ",", 
+        RowBox[{"{", 
+         RowBox[{"1.4879960382523703`", ",", "2.402086883623099`"}], "}"}], 
+        ",", 
+        RowBox[{"{", 
+         RowBox[{"4.193340935618989`", ",", "2.0674820899685353`"}], "}"}], 
+        ",", 
+        RowBox[{"{", 
+         RowBox[{"1.07511361074236`", ",", "2.8655605261563037`"}], "}"}], 
+        ",", 
+        RowBox[{"{", 
+         RowBox[{"4.5621522276001985`", ",", "2.3036590135818598`"}], "}"}], 
+        ",", 
+        RowBox[{"{", 
+         RowBox[{"0.0734941576442104`", ",", "2.7567100412409644`"}], "}"}], 
+        ",", 
+        RowBox[{"{", 
+         RowBox[{"2.0267587486366514`", ",", "1.8146817202743937`"}], "}"}], 
+        ",", 
+        RowBox[{"{", 
+         RowBox[{"1.7160467347301873`", ",", "2.2314527869285374`"}], "}"}]}],
+        "}"}]}], ",", 
+     RowBox[{"\"\<Minus\>\"", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"0.3650725217541822`", ",", "1.4540111456859945`"}], "}"}], 
+        ",", 
+        RowBox[{"{", 
+         RowBox[{"1.8799169703454597`", ",", "1.3235540770631689`"}], "}"}], 
+        ",", 
+        RowBox[{"{", 
+         RowBox[{"0.2775167301897557`", ",", "0.026781782266628973`"}], "}"}],
+         ",", 
+        RowBox[{"{", 
+         RowBox[{"1.7185797382262036`", ",", "0.8439744313421516`"}], "}"}], 
+        ",", 
+        RowBox[{"{", 
+         RowBox[{"1.0440125841941863`", ",", "0.8714161830961258`"}], "}"}], 
+        ",", 
+        RowBox[{"{", 
+         RowBox[{"4.009012707820185`", ",", "0.4883132746354524`"}], "}"}], 
+        ",", 
+        RowBox[{"{", 
+         RowBox[{"0.0444111436444237`", ",", "1.0249991478151106`"}], "}"}], 
+        ",", 
+        RowBox[{"{", 
+         RowBox[{"1.4175016236764821`", ",", "0.3949618274790252`"}], "}"}], 
+        ",", 
+        RowBox[{"{", 
+         RowBox[{"0.40287782851680287`", ",", "0.35796696425588426`"}], "}"}],
+         ",", 
+        RowBox[{"{", 
+         RowBox[{"1.3129335119181957`", ",", "0.193320544474747`"}], "}"}], 
+        ",", 
+        RowBox[{"{", 
+         RowBox[{"1.6678854129083547`", ",", "0.5245058562945744`"}], "}"}], 
+        ",", 
+        RowBox[{"{", 
+         RowBox[{"3.62477502445507`", ",", "0.2321920742831569`"}], "}"}]}], 
+       "}"}]}]}], "|>"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.82297614437396*^9, 3.822976192253549*^9}, {
+  3.82297643933304*^9, 3.8229764440907087`*^9}},
+ CellLabel->
+  "In[145]:=",ExpressionUUID->"1baf39a4-fe3b-48a8-8f4b-14e1da2c8efc"],
+
+Cell[BoxData[
+ RowBox[{"ListPlot", "[", 
+  RowBox[{"data", ",", 
+   RowBox[{"PlotMarkers", "\[Rule]", "\"\<OpenMarkers\>\""}], ",", 
+   RowBox[{"PlotTheme", "\[Rule]", "\"\<Detailed\>\""}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.822976418959372*^9, 3.822976467491787*^9}, {
+  3.8229777597299623`*^9, 3.822977836251227*^9}, {3.8229796327265263`*^9, 
+  3.822979638236968*^9}, {3.822994660347761*^9, 3.822994673036398*^9}},
+ CellLabel->"In[49]:=",ExpressionUUID->"277a89e2-d112-4ae2-ab84-e40a68fffb47"],
+
+Cell[CellGroupData[{
+
+Cell["Solving the primal problem", "Subsection",
+ CellChangeTimes->{{3.822994686625305*^9, 
+  3.822994691530304*^9}},ExpressionUUID->"a0d87674-85da-448f-9f75-\
+c4c4fc2b0335"],
+
+Cell["\<\
+We can directly solve the primal problem. To do so we need to set up the \
+constraints imposed by the samples.\
+\>", "Text",
+ CellChangeTimes->{{3.8227591223385363`*^9, 3.822759128684408*^9}, {
+  3.822994742076789*^9, 
+  3.822994758658195*^9}},ExpressionUUID->"572c21a5-143a-4be7-99b8-\
+0e67f833dbbf"],
+
+Cell["\<\
+Now we can use NMinimise to find the  solution to the constrained \
+optimisation problem.\
+\>", "Text",
+ CellChangeTimes->{{3.822995475106427*^9, 
+  3.8229955228847837`*^9}},ExpressionUUID->"b2879cb0-22d2-4c9a-b278-\
+59ac4e9c8e3c"],
+
+Cell["This means that our decision function is", "Text",
+ CellChangeTimes->{{3.8229793983076553`*^9, 3.822979403507124*^9}, {
+  3.82299555567955*^9, 
+  3.8229955584655323`*^9}},ExpressionUUID->"bd7948a8-251a-46fc-afb2-\
+461b6156a944"],
+
+Cell["Then, our decision line is", "Text",
+ CellChangeTimes->{{3.822979465258322*^9, 3.8229794691165257`*^9}, {
+  3.822979519821231*^9, 
+  3.8229795380222807`*^9}},ExpressionUUID->"8f936eb6-5958-47e8-975c-\
+20e978b0b6cb"],
+
+Cell["and our margins are", "Text",
+ CellChangeTimes->{{3.822979540778611*^9, 
+  3.822979543062613*^9}},ExpressionUUID->"4c0682ec-235b-4b88-9fdc-\
+5ef34b86fb08"],
+
+Cell["Let\[CloseCurlyQuote]s now plot our decision line, margins and data \
+points", "Text",
+ CellChangeTimes->{{3.822995736250307*^9, 
+  3.822995749390864*^9}},ExpressionUUID->"71aa4012-4450-45c2-aab6-\
+28babcd20107"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Solving the dual problem", "Subsection",
+ CellChangeTimes->{{3.822995606787013*^9, 
+  3.82299560948449*^9}},ExpressionUUID->"e82e002d-49e0-42cc-8e54-\
+e6f0cebf4365"],
+
+Cell[TextData[{
+ "We could also solve the dual problem. First, we build up the matrix X and \
+vectors ",
+ StyleBox["y",
+  FontWeight->"Bold"],
+ ", ",
+ StyleBox["\[Lambda]",
+  FontWeight->"Bold"],
+ " and ",
+ StyleBox["e",
+  FontWeight->"Bold"],
+ "."
+}], "Text",
+ CellChangeTimes->{{3.8227406354649*^9, 3.822740643071721*^9}, {
+  3.8229956177110577`*^9, 
+  3.822995659533616*^9}},ExpressionUUID->"e94c3f54-6f1d-429b-ac94-\
+ebd841892928"],
+
+Cell["Now we can solve the dual optimisation problem", "Text",
+ CellChangeTimes->{{3.822995706595687*^9, 
+  3.822995714144512*^9}},ExpressionUUID->"ed6a3e03-94c6-463e-8ee5-\
+edd2ba5ddf24"],
+
+Cell[TextData[{
+ "Notice that only a small number of the ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["\[Lambda]", "i"], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "12925eaa-8f0b-4839-a8ab-ed03e79204c8"],
+ "\[CloseCurlyQuote]s are non-zero; these are the ones corresponding to the \
+support vectors."
+}], "Text",
+ CellChangeTimes->{{3.822995768165753*^9, 
+  3.8229957970898952`*^9}},ExpressionUUID->"4a17afa9-4bb3-4bfa-9e7e-\
+1967d1f6127a"],
+
+Cell[TextData[{
+ "We can next compute the value for ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"w", "=", 
+    RowBox[{
+     SuperscriptBox["X", "T"], "\[Lambda]"}]}], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "5474ab15-868f-48a3-8489-06a2766e72b9"],
+ " and find b from one of the constraints with a non-zero ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["\[Lambda]", "i"], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "4980f3de-72db-43d6-b1b1-60a511f23ea9"],
+ " actually being an equality (rather than an inequality)."
+}], "Text",
+ CellChangeTimes->{{3.822980687380495*^9, 3.822980759188776*^9}, {
+  3.822995801432269*^9, 3.8229958171482553`*^9}, {3.822996118638393*^9, 
+  3.8229961193526917`*^9}},ExpressionUUID->"4e33ebd1-1ff3-4600-8d97-\
+0b8096964f14"],
+
+Cell["\<\
+Check this agrees with what we found when solving the primal version\
+\>", "Text",
+ CellChangeTimes->{{3.822995837229766*^9, 3.8229958642857313`*^9}, {
+  3.822996125451795*^9, 
+  3.8229961292871017`*^9}},ExpressionUUID->"35032774-e30d-4dbf-99f5-\
+7cc7e51618d1"],
+
+Cell["\<\
+Knowing the support vectors, we could also go the other way and obtain the \
+\[Lambda]\[CloseCurlyQuote]s from the w and b found by solving the primal \
+problem\
+\>", "Text",
+ CellChangeTimes->{{3.822740658820961*^9, 3.8227406684311666`*^9}, {
+  3.822980644743555*^9, 3.822980660425441*^9}, {3.822995891711063*^9, 
+  3.822995902827364*^9}},ExpressionUUID->"140257a3-8af3-40b2-a63b-\
+ffe6b06ec56d"],
+
+Cell["Again, this is consistent with solving the dual problem.", "Text",
+ CellChangeTimes->{{3.822995886411324*^9, 
+  3.822995911872384*^9}},ExpressionUUID->"1e40ec72-719c-4d47-a1eb-\
+5c57eb1e9b24"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Kernel Trick", "Section",
+ CellChangeTimes->{{3.8229808671994123`*^9, 
+  3.8229808688641043`*^9}},ExpressionUUID->"b5bf50b5-4b7d-404b-ba9e-\
+547513b6c38b"],
+
+Cell["\<\
+We next look at an example where the data is not linearly separable and we \
+will have to apply the kernel trick. First we generate two datasets, one \
+surrounding another. We do this by defining the data in polar coordinates:\
+\>", "Text",
+ CellChangeTimes->{{3.822980871595449*^9, 3.822980935565127*^9}, {
+  3.8229995372104597`*^9, 
+  3.822999537366713*^9}},ExpressionUUID->"4864c7c6-789f-4875-aaa1-\
+93856e1c6573"],
+
+Cell["And then transforming to Cartesian coordinates:", "Text",
+ CellChangeTimes->{{3.822980938680564*^9, 3.822980946531595*^9}, {
+  3.822997773906652*^9, 
+  3.822997775129292*^9}},ExpressionUUID->"d9346f6a-07ba-4745-9a38-\
+bdcf7b6b95e4"],
+
+Cell["We now have a non-linearly separable dataset:", "Text",
+ CellChangeTimes->{{3.822996257502099*^9, 
+  3.8229962710465612`*^9}},ExpressionUUID->"aa20f92e-3f62-4012-a4b0-\
+70f91dd6e8a9"],
+
+Cell[CellGroupData[{
+
+Cell["Explicit polar coordinate map", "Subsection",
+ CellChangeTimes->{{3.822996391599948*^9, 
+  3.8229964015899343`*^9}},ExpressionUUID->"125c3fb4-950d-4960-89f3-\
+f59c80d6202d"],
+
+Cell[TextData[{
+ "We first look at the case where we have a good idea for an explicit map ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"\[Phi]", "(", 
+     RowBox[{"x", ",", "y"}], ")"}], "=", 
+    RowBox[{"(", 
+     RowBox[{"r", ",", "\[Theta]"}], ")"}]}], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "04cf3e5e-02d0-4c54-a598-5cf334149aa0"],
+ " that will transform the data into a nice form. Define the map and apply it \
+to our data:"
+}], "Text",
+ CellChangeTimes->{{3.822996407687862*^9, 3.822996467099221*^9}, {
+  3.822996546639573*^9, 
+  3.822996558875002*^9}},ExpressionUUID->"94ddb11d-5747-4a93-a5ab-\
+a11e3e07c2c2"],
+
+Cell["Now we build up our X matrix with the transformed samples", "Text",
+ CellChangeTimes->{{3.822996489429439*^9, 
+  3.822996502165043*^9}},ExpressionUUID->"ef691abc-d69d-4fbc-ac0d-\
+ff6784b6e37b"],
+
+Cell["Now we can solve the dual optimisation problem", "Text",
+ CellChangeTimes->{{3.822995706595687*^9, 
+  3.822995714144512*^9}},ExpressionUUID->"0dd756a2-321a-4c55-8b9e-\
+139c2354cdd9"],
+
+Cell[TextData[{
+ "We can then compute the values for ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"w", "=", 
+    RowBox[{
+     SuperscriptBox["X", "T"], "\[Lambda]"}]}], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "9dde94c7-61f6-4e06-94ba-86ec428e1275"],
+ ", and find b from one of the constraints with a non-zero ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["\[Lambda]", "i"], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "85fe3e40-252e-4acc-9861-457943632d96"],
+ " actually being an equality (rather than inequality)."
+}], "Text",
+ CellChangeTimes->{{3.822980687380495*^9, 3.822980759188776*^9}, 
+   3.82299708516726*^9},ExpressionUUID->"fa2fed76-7ef8-45bb-88bf-\
+f7dad0734bb5"],
+
+Cell["Now we draw our decision line and margins on the r-\[Theta] plot", \
+"Text",
+ CellChangeTimes->{{3.822997092894528*^9, 
+  3.822997107733405*^9}},ExpressionUUID->"3cdd876a-61f0-4c1e-a3e6-\
+e20a8bdb5b3d"],
+
+Cell["We can also draw them on the original plot", "Text",
+ CellChangeTimes->{{3.82299711180614*^9, 
+  3.8229971191969137`*^9}},ExpressionUUID->"2c5cf1ec-d97d-4d2c-bc13-\
+067fa2c68da3"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Explicit higher map to higher dimensions", "Subsection",
+ CellChangeTimes->{{3.822997531303759*^9, 
+  3.822997543022784*^9}},ExpressionUUID->"46fc5f4c-3ffa-48b9-b86e-\
+56250f6201ff"],
+
+Cell[TextData[{
+ "There is another way we could get support vector machines to work with this \
+dataset: by projecting onto a higher dimension. We now try the map ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"\[Phi]", "(", 
+     RowBox[{"x", ",", "y"}], ")"}], "=", 
+    RowBox[{"(", 
+     RowBox[{"x", ",", "y", ",", 
+      RowBox[{
+       SuperscriptBox["x", "2"], "+", 
+       SuperscriptBox["y", "2"]}]}], ")"}]}], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "16787ddb-9d94-4d3b-b064-75351c2d5831"]
+}], "Text",
+ CellChangeTimes->{{3.8229975499878893`*^9, 
+  3.8229976002086363`*^9}},ExpressionUUID->"6a498b52-ba54-4e92-916a-\
+0a93b2a9eda4"],
+
+Cell["\<\
+We go through the same process as before to set up the dual optimisation \
+problem:\
+\>", "Text",
+ CellChangeTimes->{{3.822997603357193*^9, 
+  3.82299761824004*^9}},ExpressionUUID->"38d37acc-0bdb-4c4f-991d-\
+7486c167803f"],
+
+Cell[TextData[{
+ "We now compute the values for ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"w", "=", 
+    RowBox[{
+     SuperscriptBox["X", "T"], "\[Lambda]"}]}], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "3fbe1833-bfe7-4db4-9d89-b411e9a9c48b"],
+ " and find b from one of the constraints with a non-zero ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["\[Lambda]", "i"], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "2af9da74-da80-4325-9f43-a43df079e287"],
+ " actually being an equality (rather than inequality)."
+}], "Text",
+ CellChangeTimes->{{3.822980687380495*^9, 3.822980759188776*^9}, {
+  3.822997897228054*^9, 
+  3.822997897832984*^9}},ExpressionUUID->"fb1441ae-dd99-4725-a8f5-\
+f79776112d7c"],
+
+Cell["Now we draw our decision line and margins on the r-\[Theta] plot", \
+"Text",
+ CellChangeTimes->{{3.822997092894528*^9, 
+  3.822997107733405*^9}},ExpressionUUID->"432d1d91-2cf6-43da-9e08-\
+9c1be9cb08ec"],
+
+Cell["We can also draw them on the original plot", "Text",
+ CellChangeTimes->{{3.82299711180614*^9, 
+  3.8229971191969137`*^9}},ExpressionUUID->"5f1c4167-382c-42bf-83ff-\
+ef71614c9388"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Implicit map using the Kernel trick", "Subsection",
+ CellChangeTimes->{{3.822998220085464*^9, 
+  3.8229982269816713`*^9}},ExpressionUUID->"9e25d241-1cf9-4572-b6f8-\
+5b01afad8606"],
+
+Cell[TextData[{
+ "Instead of defining the map explicitly, the fact that our optimisation only \
+depends on the inner product of samples means we can use the kernel trick. \
+Let\[CloseCurlyQuote]s define a kernel ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"k", "(", 
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{
+        SubscriptBox["x", "i"], ",", 
+        SubscriptBox["y", "i"]}], ")"}], ",", 
+      RowBox[{"(", 
+       RowBox[{
+        SubscriptBox["x", "j"], ",", 
+        SubscriptBox["y", "j"]}], ")"}]}], ")"}], "=", 
+    RowBox[{
+     RowBox[{
+      SubscriptBox["x", "i"], 
+      SubscriptBox["x", "j"]}], "+", 
+     RowBox[{
+      SubscriptBox["y", "i"], 
+      SubscriptBox["y", "j"]}], "+", 
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{
+        SuperscriptBox[
+         SubscriptBox["x", "i"], "2"], "+", 
+        SuperscriptBox[
+         SubscriptBox["y", "i"], "2"]}], ")"}], 
+      RowBox[{"(", 
+       RowBox[{
+        SuperscriptBox[
+         SubscriptBox["x", "j"], "2"], "+", 
+        SuperscriptBox[
+         SubscriptBox["y", "j"], "2"]}], ")"}]}]}]}], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "896231a9-80c6-4035-8d76-2e4906b1669a"]
+}], "Text",
+ CellChangeTimes->{{3.8229982370847178`*^9, 
+  3.822998367705614*^9}},ExpressionUUID->"1139c56a-36cd-4f56-843f-\
+66c2dfee1852"],
+
+Cell[TextData[{
+ "We now set up the dual optimisation problem by computing ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"X", " ", 
+    SuperscriptBox["X", "T"]}], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "2e43f09e-bfad-4fa4-8676-bdc3720628bb"],
+ " directly using the kernel:"
+}], "Text",
+ CellChangeTimes->{{3.822997603357193*^9, 3.82299761824004*^9}, {
+  3.8229984162844133`*^9, 
+  3.822998436092779*^9}},ExpressionUUID->"db335bfd-2d20-4a9a-8c3f-\
+e2e587fd670b"],
+
+Cell["\<\
+We have now found the solution. In fact, it\[CloseCurlyQuote]s the exact same \
+solution as we found with the 3D map because this kernel is exactly the one \
+you get from that map.\
+\>", "Text",
+ CellChangeTimes->{{3.822998658040759*^9, 
+  3.8229987123802233`*^9}},ExpressionUUID->"c0803504-b416-4ab1-b175-\
+a69e65a4abcc"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Generic Kernels", "Subsection",
+ CellChangeTimes->{{3.822990623352353*^9, 
+  3.822990625760766*^9}},ExpressionUUID->"a3305560-56b0-42d2-b21f-\
+f613acc54773"],
+
+Cell["\<\
+In the example so far we had a good idea for which kernel to use a priori. \
+That is not usually the case so let\[CloseCurlyQuote]s now look at using some \
+generic kernels. We will apply it to the following dataset:\
+\>", "Text",
+ CellChangeTimes->{{3.822998723562336*^9, 
+  3.8229988024805593`*^9}},ExpressionUUID->"1a657693-4fa5-40a8-841d-\
+52ff5cbb44b1"],
+
+Cell[TextData[{
+ "We could implement the kernels ourselves, take care of projecting back to \
+the original space, etc., but let\[CloseCurlyQuote]s now just use the \
+high-level ",
+ ButtonBox["Classify",
+  BaseStyle->"Link",
+  ButtonData->"paclet:ref/Classify"],
+ " function to take care of all of those details for us. We will specify the \
+\[OpenCurlyDoubleQuote]SupportVectorMachine\[CloseCurlyDoubleQuote] method \
+with three different choices of kernel. Note that this generates a function \
+that can return a probability that the input is of a given class."
+}], "Text",
+ CellChangeTimes->{{3.8229988192188883`*^9, 3.8229989048317823`*^9}, {
+  3.822999054185519*^9, 
+  3.8229990846382923`*^9}},ExpressionUUID->"eb4a4c44-8f19-4349-be9f-\
+b4c29ed20b24"],
+
+Cell["First, with a linear kernel it fails totally", "Text",
+ CellChangeTimes->{{3.822998916205287*^9, 
+  3.822998922682157*^9}},ExpressionUUID->"3d51c64a-579f-48d6-909a-\
+38dd50116918"],
+
+Cell["\<\
+Next, the polynomial kernel does quite a good job in this case\
+\>", "Text",
+ CellChangeTimes->{{3.82299893543262*^9, 
+  3.822998947040895*^9}},ExpressionUUID->"af4083e9-c97a-4451-aa68-\
+ef3827a8545a"],
+
+Cell["The Gaussian/radial basis function kernel does a good job", "Text",
+ CellChangeTimes->{{3.82299893543262*^9, 3.822998947040895*^9}, {
+  3.822999357537806*^9, 
+  3.822999373005495*^9}},ExpressionUUID->"b13bba6c-3616-4f39-992f-\
+cb29a2e45d59"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+Handwriting recognition: Suppor Vector Machine with MNIST Digits dataset\
+\>", "Section",
+ CellChangeTimes->{{3.8229906835961246`*^9, 
+  3.822990701966954*^9}},ExpressionUUID->"5b7456a3-1a2f-41f1-a5be-\
+9904c63118e1"],
+
+Cell["\<\
+We now return to the example of handwriting recognition to see how well \
+support vector machines perform with categorising the MNIST Digits dataset\
+\>", "Text",
+ CellChangeTimes->{{3.8229995585095243`*^9, 
+  3.8229995901177692`*^9}},ExpressionUUID->"5ec8ac3d-447b-4953-ba0e-\
+0deec8bb5628"],
+
+Cell["\<\
+We will train our support vector machine with a random sample of 100 digits.\
+\>", "Text",
+ CellChangeTimes->{{3.8220330577685127`*^9, 3.82203317073836*^9}, {
+  3.8229996472198153`*^9, 
+  3.822999666670204*^9}},ExpressionUUID->"eaa048fa-eb2a-4e80-83d6-\
+d4ea0b4f7340"],
+
+Cell["\<\
+Let\[CloseCurlyQuote]s see how well it performs by testing it on a random \
+sample of the test data\
+\>", "Text",
+ CellChangeTimes->{{3.822591053083922*^9, 
+  3.8225910697086077`*^9}},ExpressionUUID->"c1843b7e-da22-4305-b0d9-\
+50f9042468f7"],
+
+Cell["\<\
+It\[CloseCurlyQuote]s right about 15% of the time - only slightly better than \
+random luck. We could improve this by going back to the training step and \
+using more training samples:\
+\>", "Text",
+ CellChangeTimes->{{3.82259110804383*^9, 3.822591138974526*^9}, {
+  3.822999966931994*^9, 
+  3.822999999837356*^9}},ExpressionUUID->"413ee70e-ba3b-4b17-afd8-\
+cc7cd2cdabec"],
+
+Cell["\<\
+Let\[CloseCurlyQuote]s see how well it performs by testing it on a random \
+sample of the test data\
+\>", "Text",
+ CellChangeTimes->{{3.822591053083922*^9, 
+  3.8225910697086077`*^9}},ExpressionUUID->"9e2b11b4-e5ab-44c7-bc3a-\
+805813741f8d"],
+
+Cell["Now this is close to 90% accurate", "Text",
+ CellChangeTimes->{{3.8225911746427097`*^9, 
+  3.822591182160274*^9}},ExpressionUUID->"54ec42a6-53b3-4bb2-b07b-\
+d6b50541c19f"]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{1304, 766},
+WindowMargins->{{301, Automatic}, {Automatic, 97}},
+FrontEndVersion->"12.2 for Mac OS X x86 (64-bit) (December 12, 2020)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"7a64993f-039e-4bd8-bb26-a1c01cc3d079"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 166, 3, 98, "Title",ExpressionUUID->"289eaf38-3e93-40a8-bc2b-d9c992b97006"],
+Cell[749, 27, 423, 8, 58, "Text",ExpressionUUID->"ef24bbba-1885-49f3-bd5c-aeaabe0bc185"],
+Cell[CellGroupData[{
+Cell[1197, 39, 171, 3, 67, "Section",ExpressionUUID->"bde7937b-f30f-4050-93b6-58fce63e9674"],
+Cell[1371, 44, 1010, 31, 35, "Text",ExpressionUUID->"cadd491c-50ed-4874-93d3-6fd1c6d20aee"],
+Cell[2384, 77, 268, 6, 35, "Text",ExpressionUUID->"395ea9a3-acfc-487f-b9f9-78cf4694122f"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2689, 88, 170, 2, 67, "Section",ExpressionUUID->"3b64852d-85ac-42fc-81d6-a533fd895d6a"],
+Cell[2862, 92, 697, 15, 58, "Text",ExpressionUUID->"05d2161c-cfdb-419e-8627-028b75f6b563"],
+Cell[3562, 109, 2748, 74, 157, "Input",ExpressionUUID->"1baf39a4-fe3b-48a8-8f4b-14e1da2c8efc"],
+Cell[6313, 185, 501, 8, 30, "Input",ExpressionUUID->"277a89e2-d112-4ae2-ab84-e40a68fffb47"],
+Cell[CellGroupData[{
+Cell[6839, 197, 174, 3, 54, "Subsection",ExpressionUUID->"a0d87674-85da-448f-9f75-c4c4fc2b0335"],
+Cell[7016, 202, 311, 7, 35, "Text",ExpressionUUID->"572c21a5-143a-4be7-99b8-0e67f833dbbf"],
+Cell[7330, 211, 241, 6, 35, "Text",ExpressionUUID->"b2879cb0-22d2-4c9a-b278-59ac4e9c8e3c"],
+Cell[7574, 219, 234, 4, 35, "Text",ExpressionUUID->"bd7948a8-251a-46fc-afb2-461b6156a944"],
+Cell[7811, 225, 221, 4, 35, "Text",ExpressionUUID->"8f936eb6-5958-47e8-975c-20e978b0b6cb"],
+Cell[8035, 231, 161, 3, 35, "Text",ExpressionUUID->"4c0682ec-235b-4b88-9fdc-5ef34b86fb08"],
+Cell[8199, 236, 218, 4, 35, "Text",ExpressionUUID->"71aa4012-4450-45c2-aab6-28babcd20107"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[8454, 245, 171, 3, 54, "Subsection",ExpressionUUID->"e82e002d-49e0-42cc-8e54-e6f0cebf4365"],
+Cell[8628, 250, 435, 16, 35, "Text",ExpressionUUID->"e94c3f54-6f1d-429b-ac94-ebd841892928"],
+Cell[9066, 268, 188, 3, 35, "Text",ExpressionUUID->"ed6a3e03-94c6-463e-8ee5-edd2ba5ddf24"],
+Cell[9257, 273, 465, 12, 35, "Text",ExpressionUUID->"4a17afa9-4bb3-4bfa-9e7e-1967d1f6127a"],
+Cell[9725, 287, 800, 20, 35, "Text",ExpressionUUID->"4e33ebd1-1ff3-4600-8d97-0b8096964f14"],
+Cell[10528, 309, 271, 6, 35, "Text",ExpressionUUID->"35032774-e30d-4dbf-99f5-7cc7e51618d1"],
+Cell[10802, 317, 407, 8, 35, "Text",ExpressionUUID->"140257a3-8af3-40b2-a63b-ffe6b06ec56d"],
+Cell[11212, 327, 198, 3, 35, "Text",ExpressionUUID->"1e40ec72-719c-4d47-a1eb-5c57eb1e9b24"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[11459, 336, 161, 3, 67, "Section",ExpressionUUID->"b5bf50b5-4b7d-404b-ba9e-547513b6c38b"],
+Cell[11623, 341, 427, 8, 58, "Text",ExpressionUUID->"4864c7c6-789f-4875-aaa1-93856e1c6573"],
+Cell[12053, 351, 238, 4, 35, "Text",ExpressionUUID->"d9346f6a-07ba-4745-9a38-bdcf7b6b95e4"],
+Cell[12294, 357, 189, 3, 35, "Text",ExpressionUUID->"aa20f92e-3f62-4012-a4b0-70f91dd6e8a9"],
+Cell[CellGroupData[{
+Cell[12508, 364, 179, 3, 54, "Subsection",ExpressionUUID->"125c3fb4-950d-4960-89f3-f59c80d6202d"],
+Cell[12690, 369, 655, 17, 35, "Text",ExpressionUUID->"94ddb11d-5747-4a93-a5ab-a11e3e07c2c2"],
+Cell[13348, 388, 199, 3, 35, "Text",ExpressionUUID->"ef691abc-d69d-4fbc-ac0d-ff6784b6e37b"],
+Cell[13550, 393, 188, 3, 35, "Text",ExpressionUUID->"0dd756a2-321a-4c55-8b9e-139c2354cdd9"],
+Cell[13741, 398, 722, 19, 35, "Text",ExpressionUUID->"fa2fed76-7ef8-45bb-88bf-f7dad0734bb5"],
+Cell[14466, 419, 208, 4, 35, "Text",ExpressionUUID->"3cdd876a-61f0-4c1e-a3e6-e20a8bdb5b3d"],
+Cell[14677, 425, 185, 3, 35, "Text",ExpressionUUID->"2c5cf1ec-d97d-4d2c-bc13-067fa2c68da3"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[14899, 433, 188, 3, 54, "Subsection",ExpressionUUID->"46fc5f4c-3ffa-48b9-b86e-56250f6201ff"],
+Cell[15090, 438, 676, 18, 37, "Text",ExpressionUUID->"6a498b52-ba54-4e92-916a-0a93b2a9eda4"],
+Cell[15769, 458, 232, 6, 35, "Text",ExpressionUUID->"38d37acc-0bdb-4c4f-991d-7486c167803f"],
+Cell[16004, 466, 743, 20, 35, "Text",ExpressionUUID->"fb1441ae-dd99-4725-a8f5-f79776112d7c"],
+Cell[16750, 488, 208, 4, 35, "Text",ExpressionUUID->"432d1d91-2cf6-43da-9e08-9c1be9cb08ec"],
+Cell[16961, 494, 185, 3, 35, "Text",ExpressionUUID->"5f1c4167-382c-42bf-83ff-ef71614c9388"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[17183, 502, 185, 3, 54, "Subsection",ExpressionUUID->"9e25d241-1cf9-4572-b6f8-5b01afad8606"],
+Cell[17371, 507, 1342, 42, 58, "Text",ExpressionUUID->"1139c56a-36cd-4f56-843f-66c2dfee1852"],
+Cell[18716, 551, 485, 13, 35, "Text",ExpressionUUID->"db335bfd-2d20-4a9a-8c3f-e2e587fd670b"],
+Cell[19204, 566, 332, 7, 35, "Text",ExpressionUUID->"c0803504-b416-4ab1-b175-a69e65a4abcc"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[19573, 578, 163, 3, 54, "Subsection",ExpressionUUID->"a3305560-56b0-42d2-b21f-f613acc54773"],
+Cell[19739, 583, 368, 7, 35, "Text",ExpressionUUID->"1a657693-4fa5-40a8-841d-52ff5cbb44b1"],
+Cell[20110, 592, 755, 15, 81, "Text",ExpressionUUID->"eb4a4c44-8f19-4349-be9f-b4c29ed20b24"],
+Cell[20868, 609, 186, 3, 35, "Text",ExpressionUUID->"3d51c64a-579f-48d6-909a-38dd50116918"],
+Cell[21057, 614, 211, 5, 35, "Text",ExpressionUUID->"af4083e9-c97a-4451-aa68-ef3827a8545a"],
+Cell[21271, 621, 247, 4, 35, "Text",ExpressionUUID->"b13bba6c-3616-4f39-992f-cb29a2e45d59"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[21567, 631, 227, 5, 67, "Section",ExpressionUUID->"5b7456a3-1a2f-41f1-a5be-9904c63118e1"],
+Cell[21797, 638, 302, 6, 35, "Text",ExpressionUUID->"5ec8ac3d-447b-4953-ba0e-0deec8bb5628"],
+Cell[22102, 646, 278, 6, 35, "Text",ExpressionUUID->"eaa048fa-eb2a-4e80-83d6-d4ea0b4f7340"],
+Cell[22383, 654, 251, 6, 35, "Text",ExpressionUUID->"c1843b7e-da22-4305-b0d9-50f9042468f7"],
+Cell[22637, 662, 382, 8, 35, "Text",ExpressionUUID->"413ee70e-ba3b-4b17-afd8-cc7cd2cdabec"],
+Cell[23022, 672, 251, 6, 35, "Text",ExpressionUUID->"9e2b11b4-e5ab-44c7-bc3a-805813741f8d"],
+Cell[23276, 680, 177, 3, 35, "Text",ExpressionUUID->"54ec42a6-53b3-4bb2-b07b-d6b50541c19f"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
